@@ -4,7 +4,7 @@ interface User {
     email: string;
 }
 
-const arr: User[] = [
+const userArr: User[] = [
     {
         id: 1,
         name: "name1",
@@ -37,15 +37,19 @@ const arr: User[] = [
     },
 ];
 
-function arrFilter(arr: User[], input: string) {
+function filterUsersArr(arr: User[], input: string): User[] | [] {
     //I assumed that we search also by part of the name, excluding whitespaces from the search string
     //if it should be the same it will be
     //return arr.filter(({name}) => name === input);
     const search = input.toLowerCase().trim();
-    return arr.filter(el =>
-        el.name.toLowerCase().includes(search)
+    return arr.filter(user =>
+        user.name.toLowerCase().includes(search)
     );
 }
+
+//testing
+//console.log(filterUsersArr(userArr, 'me6')[0])
+
 
 // task 3
 // /getUsers => GET /api/v1/users
